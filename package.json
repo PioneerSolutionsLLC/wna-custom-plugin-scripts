@@ -1,0 +1,20 @@
+{
+  "name": "wna-custom-plugin-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script1": "node 1-load-customers-to-square",
+    "script2": "node 2-create-square-subscriptions-2022",
+    "script3": "node 3-create-square-subscriptions-2023"
+  },
+  "author": "Pioneer Solutions LLC",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "mysql": "^2.18.1",
+    "read-excel-file": "^5.2.26",
+    "winston": "^3.5.1"
+  }
+}
