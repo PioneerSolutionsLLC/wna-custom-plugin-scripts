@@ -39,6 +39,7 @@ try {
         const state = (row[6] == null ? '' : row[6]);
         const zip = (row[7] == null ? '' : row[7]);
         const membershipType = vars.membershipTypes[row[8]];
+        const membershipDesc = (row[8] == null ? '' : row[8]);
         const phone = (row[22] == null ? '' : row[22]);
         const phone2 = (row[23] == null ? '' : row[23]);
         const email1 = (row[24] == null ? '' : row[24]);
@@ -83,7 +84,8 @@ try {
             squareid = response.data.customer.id
             ids.push({
               "id": response.data.customer.id,
-              "membershipType": membershipType
+              "membershipType": membershipType,
+              "membershipDesc": membershipDesc
             })
           })
           .catch(error => console.log(error))
