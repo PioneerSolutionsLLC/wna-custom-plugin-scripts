@@ -21,7 +21,7 @@ try {
   });
 
   //Loop customer import file
-  readXlsxFile('./files/customer-list-small-test.xlsx').then(async (rows) => {
+  readXlsxFile('./files/customer-list (version 1).xlsx').then(async (rows) => {
     const ids = [];
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];

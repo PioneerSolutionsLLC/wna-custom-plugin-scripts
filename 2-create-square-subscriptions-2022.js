@@ -111,7 +111,7 @@ async function main() {
         // PUBLISH INVOICE
         const body3 = {
           "idempotency_key": uuidv4(),
-          "version" : newInvoiceVersion   
+          "version" : newInvoiceVersion
         }
         
         await axios.post(vars.url+'/v2/invoices/'+newInvoiceId+'/publish', body3,
