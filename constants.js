@@ -1,7 +1,7 @@
-const isSandbox = true
+const isSandbox = false
 const token = (isSandbox
   ? 'EAAAEITQ1nG4hqFBGno_k3sh9mlzr37MZ65uWrmyq0xLqOfrAQy6ND_KiULIVAvW'
-  : 'TODO')
+  : 'EAAAFFbJrnDhBFekxl3azZjdDjLOfxm_V2CgpwhHDM4C21dgWwGFj8YNrm7iXwGi')
 const squareVersion = '2022-01-20'
 const url = (isSandbox ? 'https://connect.squareupsandbox.com' : 'https://connect.squareup.com')
 const locationId = (isSandbox ? 'LY98K9RV5T514' : 'LJ64PB3KA6SZS')

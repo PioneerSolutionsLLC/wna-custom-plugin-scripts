@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "script1": "node 1-load-customers-to-square",
     "script2": "node 2-create-square-subscriptions-2022",
-    "script3": "node 3-create-square-subscriptions-2023"
+    "script3": "node 3-create-square-subscriptions-2023",
+    "script4": "node 4-update-customer-emails"
   },
   "author": "Pioneer Solutions LLC",
   "license": "ISC",

@@ -44,15 +44,19 @@ try {
         const phone2 = (row[23] == null ? '' : row[23]);
         const email1 = (row[24] == null ? '' : row[24]);
         const email2 = (row[25] == null ? '' : row[25]);
-        const vol_trees = (row[11] == null ? '' : row[11]);
-        const vol_newsletter = (row[12] == null ? '' : row[12]);
-        const vol_gardens = (row[13] == null ? '' : row[13]);
-        const vol_luminaries = (row[14] == null ? '' : row[14]);
-        const vol_social = (row[15] == null ? '' : row[15]);
-        const vol_welcome = (row[16] == null ? '' : row[16]);
-        const vol_photos = (row[17] == null ? '' : row[17]);
-        const vol_media = (row[18] == null ? '' : row[18]);
-        const vol_special = (row[19] == null ? '' : row[19]);
+        const vol_trees = (row[10] == null ? '' : row[10]);
+        const vol_newsletter = (row[11] == null ? '' : row[11]);
+        const vol_gardens = (row[12] == null ? '' : row[12]);
+        const vol_luminaries = (row[13] == null ? '' : row[13]);
+        const vol_social = (row[14] == null ? '' : row[14]);
+        const vol_membership = (row[15] == null ? '' : row[15]);
+        const vol_board = (row[16] == null ? '' : row[16]);
+        const vol_fundraising = (row[17] == null ? '' : row[17]);
+        const vol_welcome = (row[18] == null ? '' : row[18]);
+        const vol_photos = (row[19] == null ? '' : row[19]);
+        const vol_media = (row[20] == null ? '' : row[20]);
+        const vol_special = (row[21] == null ? '' : row[21]);
+        const isPaid = (row[27] == null ? '' : row[27]);
 
         // Square
         const body = {
@@ -82,11 +86,13 @@ try {
         })
           .then(response=> {
             squareid = response.data.customer.id
-            ids.push({
-              "id": response.data.customer.id,
-              "membershipType": membershipType,
-              "membershipDesc": membershipDesc
-            })
+            if (isPaid != '') {
+              ids.push({
+                "id": response.data.customer.id,
+                "membershipType": membershipType,
+                "membershipDesc": membershipDesc
+              })
+            }
           })
           .catch(error => console.log(error))
 
@@ -95,7 +101,29 @@ try {
           square_customer_id: squareid,
           wna_first_name1: first1,
           wna_last_name1: last1,
-          wna_membership_type: membershipType
+          wna_first_name2: first2,
+          wna_last_name2: last2,
+          wna_address_line1: address,
+          wna_address_city: city,
+          wna_address_state: state,
+          wna_address_zip: zip,
+          wna_email1: email1,
+          wna_email2: email2,
+          wna_home_phone: phone,
+          wna_cell_phone: phone2,
+          wna_membership_type: membershipType,
+          wna_volunteer_trees: vol_trees == 'X',
+          wna_volunteer_fundraising: vol_fundraising == 'X',
+          wna_volunteer_newsletter: vol_newsletter == 'X',
+          wna_volunteer_welcomecommittee: vol_welcome == 'X',
+          wna_volunteer_gardens: vol_gardens == 'X',
+          wna_volunteer_photography: vol_photos == 'X',
+          wna_volunteer_luminaries: vol_luminaries == 'X',
+          wna_volunteer_media: vol_media == 'X',
+          wna_volunteer_socialevents: vol_social == 'X',
+          wna_volunteer_specialprojects: vol_special == 'X',
+          wna_volunteer_boardofdirectors: vol_board == 'X',
+          wna_volunteer_membership: vol_membership == 'X'
         }
         con.query('INSERT INTO wp_jtsptwcqyx_wna_customers SET ?', customer, (err, res) => {
           if(err) throw err;
@@ -104,7 +132,7 @@ try {
         });
   
         //*************************************************** */
-      }      
+      }
     };
     logger.info(ids) //will write to file
 
